@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>02 - Until Adult</title>
+</head>
+<body>
+  <div id="container"></div>
+
+  <script>
+    /**
+     * 02_untilAdult.html
+     * Repeatedly asks the user for their age until they enter a
+     * valid adult age (18 or older). Also controls NaN input.
+     */
+    const container = document.getElementById("container");
+
+    let age;
+    do {
+      let input = prompt("Enter your age (must be 18 or older):");
+      age = Number(input);
+      // If the input is not a number or is empty, age becomes NaN
+      if (Number.isNaN(age)) {
+        alert("That's not a valid number. Please try again.");
+      } else if (age < 18) {
+        alert("You are not an adult yet. Please try again.");
+      }
+    } while (Number.isNaN(age) || age < 18);
+
+    container.innerHTML = "<h1>Welcome to my awesome website for adult people</h1>";
+  </script>
+</body>
+</html>
